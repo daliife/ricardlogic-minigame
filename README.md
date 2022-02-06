@@ -11,7 +11,7 @@ The game we made can be found at: http://spellingbee.xyz/
 
 Here is an example of what it looks like:
 
-<img src="screen_shot_game.png" width="290" height="600" />
+<img src="/assets/screen_shot_game.png" width="290" height="600" />
 
 ###  References: 
 

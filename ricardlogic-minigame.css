@@ -1,3 +1,15 @@
+/* https://coolors.co/ec4a49-f17e7e-63bcca-85cbd5-141414-008f00 */
+:root {
+  --blue: #63bcca;
+  --light-blue: #85CBD5;
+  --white: #ffffff;
+  --light-gray: #e7e7e7;
+  --red: #ec4a49;
+  --light-red: #F17E7E;
+  --black: #141414;
+  --green: #008F00;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -17,7 +29,16 @@ body {
 }
 
 #scoreboard {
+  display: flex;
+  justify-content: center;
   flex-direction: column;
+  margin-bottom: 20px;
+}
+
+#scoreboard > div{
+  align-self: center;
+  line-height: 1.5;
+  margin: 8px 20px;
 }
 
 #hexGrid {
@@ -35,7 +56,7 @@ body {
   grid-column-end: span 2;
   position: relative;
   visibility: hidden;
-  background-color: solid #63bcca;
+  background-color: solid var(--blue);
   outline: 1px solid transparent; /* fix for jagged edges in FF on hover transition */
 }
 
@@ -65,16 +86,15 @@ body {
   width: 100%;
   height: 100%;
   text-align: center;
-  background-color: #63bcca;
+  background-color: var(--blue);
   overflow: hidden;
   -webkit-transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
   -ms-transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
   transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
-  text-transform: uppercase;
 }
 
 #center-letter {
-  background-color: #ec4a49;
+  background-color: var(--red);
 }
 
 input[type="text"] {
@@ -86,31 +106,32 @@ input[type="text"] {
 
 .hex p {
   width: 100%;
-  padding: 38%;
+  padding: 40%;
   box-sizing: border-box;
   background-color: transparent;
   font-weight: 800;
   font-size: 1.4em;
-  color: black;
+  color: var(--black);
   font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
 }
 /*** HEX HOVER *****************************************************************/
 
 .hexLink:hover p,
 .hexLink:focus p {
-  background-color: #ffb103c2;
+  background-color: var(--light-blue);
 }
 
 #center-letter.hexLink:hover p,
 #center-letter.hexLink:focus p {
-  background-color: #ec4a49;
+  background-color: var(--light-red);
 }
 
 /*** HEXAGON SIZING AND EVEN ROW INDENTATION *********************************/
 
 #hexGrid {
   grid-template-columns: repeat(6, 2fr);
-  padding-bottom: 5.4%;
+  padding-bottom: 6.4%;
   margin-bottom: 2vh;
 }
 .hex:nth-child(5n + 1) {
@@ -124,7 +145,19 @@ input[type="text"] {
 
 /*** INPUT & CURSOR ********************************************************************/
 
-#testword {
+.cursor-container {
+  font-size: 2rem;
+  position: relative;
+  margin: 30px auto;
+  margin-top: 10px;
+}
+
+#input-word{
+  display: flex;
+  height: 30px;
+}
+
+#test-word {
   height: 50px;
   text-align: center;
   font-family: "Open Sans", sans-serif;
@@ -133,32 +166,26 @@ input[type="text"] {
 }
 
 #cursor {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.5rem;
   font-weight: 100;
-  height: 6vw;
-  color: #63bcca;
+  color: var(--blue);
+  margin-top: -5px;
 }
-.cursor {
-  position: relative;
-  margin: 0 auto;
-  margin-bottom: 10px;
-}
+
 
 /*** TEXT **********************************************************************/
 
 h1 {
   text-align: center;
   margin-top: 4vh;
-  margin-bottom: 1vhpx;
-  font-size: 1.5rem;
+  margin-bottom: 2vh;
+  font-size: 2.5rem;
   font-family: "Roboto Slab", serif;
 }
 
 .scoreText {
   font-family: "Open Sans", sans-serif;
   font-size: 15px;
-  font-weight: 100;
+  font-weight: normal;
   align-self: center;
 }
 
@@ -183,34 +210,33 @@ ul {
 
 /*** BUTTONS *******************************************************************/
 
-#shuffle_button {
-  padding: 10px 10px;
-}
-
-.button_container {
-  display: -webkit-inline-flex;
-  margin-bottom: 5vh;
+.button-container {
+  display: inline-flex;
+  margin: 30px auto;
   width: 300px;
-  height: 10%;
 }
 .button {
-  background-color: white;
-  border: 2px solid #e7e7e7;
+  background-color: var(--white);
+  border: 2px solid var(--light-gray);
   margin: 0 auto;
-  color: black;
-  padding: 0px 15px;
+  color: var(--black);
+  padding: 1rem;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 0.8em;
+  font-size: 0.9em;
   border-radius: 30px;
   cursor: pointer;
 }
 
 .button:hover {
-  background-color: #e7e7e7;
-  color: black;
-  border: 2px solid #e7e7e7;
+  background-color: var(--light-gray);
+  color: var(--black);
+  border: 2px solid var(--light-gray);
+}
+
+#shuffle_button {
+  padding: 1rem;
 }
 
 /*** NOTIFICATIONS AND SHAKE EFFECT ****************************************************************/
@@ -227,42 +253,27 @@ ul {
 #miss-center {
   display: none;
 }
-#good {
+#good, #great, #pangram, #amazing {
   display: None;
-  background-color: white;
-  color: black;
-  border: 1px solid rgb(179, 177, 177);
+  background-color: var(--green);
+  color: var(--white);
 }
 
-#great {
-  display: None;
-  background-color: white;
-  color: black;
-  border: 1px solid rgb(179, 177, 177);
-}
-
-#pangram {
-  display: None;
-  background-color: white;
-  color: black;
-  border: 1px solid rgb(179, 177, 177);
-}
-
-#amazing {
-  display: None;
-  background-color: white;
-  color: black;
-  border: 1px solid rgb(179, 177, 177);
+.container-notifications{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
 }
 
 .notifications {
-  background-color: black;
-  color: white;
+  background-color: #ec4a49;
+  color: var(--white);
   display: flex;
-  padding: 5px;
+  padding: 5px 10px;
   align-items: center;
   justify-content: center;
-  border-radius: 3px;
-  font-family: "Calibri Light", sans-serif;
-  font-size: 0.6em;
+  border-radius: 5px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1em;
 }

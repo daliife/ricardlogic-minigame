@@ -123,7 +123,7 @@ function shuffleLetters() {
 }
 
 //Validate whether letter typed into input box was from one of 7 available letters
-// document.getElementById("testword").addEventListener("keydown", function(event){
+// document.getElementById("test-word").addEventListener("keydown", function(event){
 //     if(!letters.includes(event.key.toUpperCase())){
 //         alert('Invalid Letter Typed')
 //         event.preventDefault();
@@ -134,14 +134,14 @@ function shuffleLetters() {
 //When letter is clicked add it to input box
 var clickLetter = function(letter){
   return function curried_func(e){
-    var tryword = document.getElementById("testword");
+    var tryword = document.getElementById("test-word");
     tryword.innerHTML = tryword.innerHTML + letter.toLowerCase();
   }
 }
 
 //Deletes the last letter of the string in the textbox
 function deleteLetter(){
-  var tryword = document.getElementById("testword");
+  var tryword = document.getElementById("test-word");
   var trywordTrimmed = tryword.innerHTML.substring(0, tryword.innerHTML.length-1);
   tryword.innerHTML = trywordTrimmed
   if(!checkIncorrectLetters(trywordTrimmed)) {
@@ -153,7 +153,7 @@ function wrongInput(selector){
   $(selector).fadeIn(1000);
   $(selector).fadeOut(500);
   $("#cursor").hide();
-  $( "#testword" ).effect("shake", {times:2.5}, 450, function(){
+  $( "#test-word" ).effect("shake", {times:2.5}, 450, function(){
       clearInput();
       $("#cursor").show();
     } );
@@ -167,7 +167,7 @@ function rightInput(selector){
 }
 
 function clearInput(){
-  $("#testword").empty();
+  $("#test-word").empty();
 }
 
 function showPoints(pts){
@@ -179,7 +179,7 @@ function showPoints(pts){
 //word must contain center letter
 //word can't already be found 
 function submitWord(){
-  var tryword = document.getElementById('testword');
+  var tryword = document.getElementById('test-word');
   var centerLetter = document.getElementById('center-letter').firstChild.innerHTML;
 
   let score = 0;
@@ -332,7 +332,7 @@ function checkIncorrectLetters(input) {
 
 //takes keyboard event from user and determines what should be done
 function input_from_keyboard(event) {
-  var tryword = document.getElementById("testword");
+  var tryword = document.getElementById("test-word");
 
   if(event.keyCode == 13) {
     submitWord();
