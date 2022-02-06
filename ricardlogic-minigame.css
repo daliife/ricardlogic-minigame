@@ -198,10 +198,22 @@ input[type="text"] {
 
 h1 {
   text-align: center;
-  margin-top: 4vh;
-  margin-bottom: 2vh;
   font-size: 2.5rem;
+  font-weight: bold;
   font-family: "Roboto Slab", serif;
+}
+
+.title{
+  margin-top: 5vh;
+  margin-bottom: 2vh;
+}
+
+.title-highlight{
+  color: var(--blue);
+}
+
+.title-highlight-variant{
+  color: var(--red);
 }
 
 .scoreText {
@@ -246,7 +258,7 @@ ul {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 0.9em;
+  font-size: 0.8em;
   border-radius: 30px;
   cursor: pointer;
 }
