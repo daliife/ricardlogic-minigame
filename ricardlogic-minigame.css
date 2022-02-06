@@ -203,16 +203,16 @@ h1 {
   font-family: "Roboto Slab", serif;
 }
 
-.title{
+.title {
   margin-top: 5vh;
   margin-bottom: 2vh;
 }
 
-.title-highlight{
+.title-highlight {
   color: var(--blue);
 }
 
-.title-highlight-variant{
+.title-highlight-variant {
   color: var(--red);
 }
 
@@ -235,6 +235,10 @@ ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+#discoveredText > ul {
+  font-weight: bold;
 }
 
 .dwords {
