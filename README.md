@@ -1,4 +1,4 @@
-# Ricardlògic Mingame
+# Ricardlògic (the Paraulògic clone/adaptation)
 
 ### Project Origin
 This project is based off of NYT's [Spelling Bee Puzzles](https://www.nytimes.com/puzzles/spelling-bee).

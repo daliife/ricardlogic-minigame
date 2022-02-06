@@ -5,9 +5,10 @@
     <title>Ricardlògic</title>
     <link rel="stylesheet" href="ricardlogic-minigame.css" />
     <link rel="icon" href="/assets/favicon.svg" type="image/icon type" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
@@ -20,10 +21,7 @@
     <h1 class="title">Ricardlògic</h1>
 
     <!-- NOTIFICATIONS -->
-    <div
-      class="container-notifications"
-      style="height: 50px; align-items: center"
-    >
+    <div class="container-notifications">
       <div>
         <p id="too-short" class="notifications">Massa curt</p>
         <p id="good" class="notifications">Bé! <span class="points"></span></p>
@@ -44,7 +42,7 @@
 
     <!-- INPUT WORD -->
     <div class="cursor-container">
-      <p id="input-word" style="display: flex">
+      <p id="input-word">
         <span id="test-word"></span>
         <span id="cursor">|</span>
       </p>
@@ -87,10 +85,11 @@
         Has trobat <span id="numfound">0</span> paraules.
       </div>
       <div class="scoreText" style="margin-bottom: 8px">
-        Puntuació: <span id="score">0</span>/<span id="maxscore">0</span>.
+        Puntuació: <span id="score">0</span>/<span id="maxscore">0</span>
       </div>
-      <div class="scoreText">Paraules descobertes:<span id="discoveredText"></span></div>
-      <!-- <div id="discoveredText"></div> -->
+      <div class="scoreText">
+        Paraules descobertes:<span id="discoveredText"></span>
+      </div>
     </div>
   </body>
 </html>

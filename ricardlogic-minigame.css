@@ -1,18 +1,23 @@
 /* https://coolors.co/ec4a49-f17e7e-63bcca-85cbd5-141414-008f00 */
 :root {
   --blue: #63bcca;
-  --light-blue: #85CBD5;
+  --light-blue: #85cbd5;
   --white: #ffffff;
   --light-gray: #e7e7e7;
   --red: #ec4a49;
-  --light-red: #F17E7E;
+  --light-red: #f17e7e;
   --black: #141414;
-  --green: #008F00;
+  --green: #008f00;
 }
 
 * {
   margin: 0;
   padding: 0;
+}
+
+html,
+body {
+  touch-action: manipulation;
 }
 
 body {
@@ -21,6 +26,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  margin: 0 auto;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
+  line-height: 30px;
+  position: relative;
 }
 
 .container {
@@ -32,10 +45,10 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
-#scoreboard > div{
+#scoreboard > div {
   align-self: center;
   line-height: 1.5;
   margin: 8px 20px;
@@ -150,18 +163,19 @@ input[type="text"] {
   position: relative;
   margin: 30px auto;
   margin-top: 10px;
+  display: flex;
 }
 
-#input-word{
+#input-word {
   display: flex;
   height: 30px;
+  align-items: center;
 }
 
 #test-word {
-  height: 50px;
+  /* height: 50px; */
   text-align: center;
   font-family: "Open Sans", sans-serif;
-  font-size: 1.5rem;
   padding-top: 3px;
 }
 
@@ -170,7 +184,6 @@ input[type="text"] {
   color: var(--blue);
   margin-top: -5px;
 }
-
 
 /*** TEXT **********************************************************************/
 
@@ -253,17 +266,26 @@ ul {
 #miss-center {
   display: none;
 }
-#good, #great, #pangram, #amazing {
+#good,
+#great,
+#pangram,
+#amazing {
   display: None;
-  background-color: var(--green);
+  background-color: var(--blue);
   color: var(--white);
 }
+#pangram,
+#amazing {
+  background-color: var(--green);
+}
 
-.container-notifications{
+.container-notifications {
   position: relative;
   display: flex;
   justify-content: center;
   margin-top: 8px;
+  /* height: 50px;  */
+  align-items: center;
 }
 
 .notifications {
