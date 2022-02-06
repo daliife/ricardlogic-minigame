@@ -2,7 +2,7 @@
 
 <html>
   <head>
-    <title>Ricardlògic</title>
+    <title>RICARDLÒGIC</title>
     <link rel="stylesheet" href="ricardlogic-minigame.css" />
     <link rel="icon" href="/assets/favicon.svg" type="image/icon type" />
     <meta
@@ -18,7 +18,7 @@
     />
   </head>
   <body onload="get_valid_words()" onkeydown="input_from_keyboard(event)">
-    <h1 class="title">Ricardlògic</h1>
+    <h1 class="title">RICARDLÒGIC</h1>
 
     <!-- NOTIFICATIONS -->
     <div class="container-notifications">
@@ -49,7 +49,7 @@
     </div>
 
     <!-- HEXAGON GRID -->
-    <div style="display: flex; flex-direction: column; align-items: center">
+    <div class="hexGrid-container">
       <ul id="hexGrid"></ul>
 
       <div class="button-container">
@@ -67,7 +67,7 @@
           class="button"
           onclick="shuffleLetters()"
         >
-          <img src="/assets/shuffle_icon.png" style="width: 1.2em" />
+          <img src="./assets/shuffle_icon.png" style="width: 1.2em" />
         </button>
         <button
           id="submit_button"

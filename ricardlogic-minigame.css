@@ -54,6 +54,12 @@ body {
   margin: 8px 20px;
 }
 
+.hexGrid-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #hexGrid {
   display: grid;
   grid-gap: 6px;
@@ -104,6 +110,10 @@ body {
   -webkit-transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
   -ms-transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
   transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
+}
+
+.hexLink:focus {
+  outline: none;
 }
 
 #center-letter {
@@ -173,14 +183,13 @@ input[type="text"] {
 }
 
 #test-word {
-  /* height: 50px; */
   text-align: center;
   font-family: "Open Sans", sans-serif;
   padding-top: 3px;
 }
 
 #cursor {
-  font-weight: 100;
+  font-weight: 600;
   color: var(--blue);
   margin-top: -5px;
 }
@@ -242,14 +251,22 @@ ul {
   cursor: pointer;
 }
 
+.button:focus {
+  outline: none;
+}
+
 .button:hover {
   background-color: var(--light-gray);
   color: var(--black);
   border: 2px solid var(--light-gray);
 }
 
+.button:focus-within {
+  outline: white;
+}
+
 #shuffle_button {
-  padding: 1rem;
+  display: flex;
 }
 
 /*** NOTIFICATIONS AND SHAKE EFFECT ****************************************************************/
