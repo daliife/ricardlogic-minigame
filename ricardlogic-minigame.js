@@ -113,6 +113,8 @@ function initialize_score() {
 function preloadDiscoveredWords(){
   if(localStorage.hasOwnProperty("discovered-words")){
     discoveredWords = JSON.parse(localStorage.getItem('discovered-words'));
+    numFound = discoveredWords.length;
+    document.getElementById("numfound").innerHTML = numFound;
     showDiscoveredWord();
   }
 }
@@ -300,41 +302,17 @@ function showDiscoveredWord(input) {
   }
   discoveredWords.sort();
   localStorage.setItem('discovered-words', JSON.stringify(discoveredWords));
-  while (discText.firstChild) {
-    discText.removeChild(discText.firstChild);
-  }
+  discText.innerHTML = '';
+  discoveredWords.forEach((word, index) => {
+    if(index < discoveredWords.length - 1 ){
+      discText.innerHTML += word + ',';
+    }else{
+      discText.innerHTML += word + '.';
+    }
+  });
 
-  var numFound = discoveredWords.length;
-  var numCol = Math.ceil(numFound / 6);
-  var w = 0;
-  for (var c = 0; c < numCol; c++) {
-    var list = document.createElement("UL");
-    list.id = "discovered-words-" + c;
-    list.style.cssText = "font-weight:bold; ";
-    discText.appendChild(list);
-    var n = 6;
-    if (c == numCol - 1) {
-      if (numFound % 6 == 0) {
-        if (numFound == 0) {
-          n = 0;
-        } else {
-          n = 6;
-        }
-      } else {
-        n = numFound % 6;
-      }
-    }
-    for (var i = 0; i < n; i++) {
-      var listword = document.createElement("LI");
-      var pword = document.createElement("P");
-      pword.innerHTML = discoveredWords[w];
-      listword.appendChild(pword);
-      list.appendChild(listword);
-      w++;
-    }
-  }
   if (numFound == validWords.length) {
-    alert("You have found all of the possible words! Thanks for playing");
+    alert("Eureka! Has trobat totes les paraules!");
   }
 }
 

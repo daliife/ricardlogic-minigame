@@ -48,6 +48,10 @@ body {
   margin-bottom: 1rem;
 }
 
+.punctuation{
+  margin-top: 1.5rem!important;
+}
+
 #scoreboard > div {
   align-self: center;
   line-height: 1.5;
@@ -239,6 +243,10 @@ ul {
 }
 
 #discoveredText > ul {
+  font-weight: bold;
+}
+
+.bold-text{
   font-weight: bold;
 }
 
