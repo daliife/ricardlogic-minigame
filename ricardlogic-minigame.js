@@ -22,56 +22,110 @@ const JSON_MOCK = {
   pangram: "ricard",
   possible_words: [
     "acid",
+    "adiar",
     "africa",
     "aidar",
     "aimara",
     "aimia",
     "amic",
+    "ari",
+    "aria",
     "arid",
+    "cada",
     "cadi",
     "cadira",
+    "cadiram",
     "caiac",
     "caid",
     "cairar",
-    "camí",
-    "carícia",
+    "cama",
+    "camarada",
+    "cami",
+    "car",
+    "cara",
+    "caria",
+    "caricia",
     "cia",
     "cidrac",
-    "cim",
     "cima",
     "cimaci",
     "cimar",
-    "ciri",
+    "dar",
+    "dard",
+    "dama",
     "dia",
     "diac",
+    "diaca",
     "diari",
     "diaria",
-    "dic",
+    "dida",
+    "didac",
     "difamar",
-    "dir",
-    "dirimir",
-    "fic",
+    "drac",
+    "drama",
+    "fada",
+    "fam",
+    "fama",
+    "far",
+    "farad",
+    "faradaic",
+    "faradic",
+    "farcir",
+    "faria",
+    "farmac",
+    "farmacia",
     "fira",
     "firam",
     "firar",
     "firma",
     "firmar",
+    "mac",
+    "macada",
+    "macadam",
+    "macadamia",
+    "madrid",
+    "mai",
+    "mama",
+    "mamada",
+    "mamar",
+    "mar",
+    "maraca",
+    "marcada",
+    "marcar",
     "marica",
     "maridar",
     "mia",
     "mica",
+    "micra",
     "mida",
     "midar",
     "mira",
     "mirada",
     "mirar",
+    "rad",
+    "rada",
+    "radar",
+    "radi",
+    "radiar",
     "radicar",
-    "ric",
+    "rafi",
+    "rafia",
+    "raim",
+    "ram",
+    "ramada",
+    "ramificar",
+    "rar",
+    "rara",
+    "ria",
+    "riada",
     "rica",
-    "ricard"
+    "ricarda",
+    "rima",
+    "rimaia",
+    "rimar",
   ],
   center_letter: "i",
-  maxscore: 402,
+  maxscore: 505,
 };
 
 //makes http request to an awi api endpoint that triggers a lambda function to return today's letters/words
@@ -110,17 +164,28 @@ function initialize_score() {
   document.getElementById("numpossibles").innerHTML = String(validWords.length);
 }
 
-function preloadDiscoveredWords(){
-  if(localStorage.hasOwnProperty("discovered-words")){
-    discoveredWords = JSON.parse(localStorage.getItem('discovered-words'));
+function preloadDiscoveredWords() {
+  if (localStorage.hasOwnProperty("discovered-words")) {
+    discoveredWords = JSON.parse(localStorage.getItem("discovered-words"));
+    
+    // Update num words found
     numFound = discoveredWords.length;
     document.getElementById("numfound").innerHTML = numFound;
     showDiscoveredWord();
+
+    // Update score
+    if(discoveredWords.length > 0){
+      discoveredWords.forEach(element => {
+        score = calculateWordScore(element, false);
+        addToTotalScore(score);
+      });
+      document.getElementById("score").innerHTML = totalScore;
+    }
   }
 }
 
-function removeLocalStorage(){
-  storage.removeItem("discovered-words");
+function removeLocalStorage() {
+  localStorage.removeItem("discovered-words");
 }
 
 //Creates the hexagon grid of 7 letters with middle letter as special color
@@ -178,28 +243,7 @@ function shuffleLetters() {
     hexgrid.removeChild(hexgrid.firstChild);
   }
   initialize_letters();
-
-  /*
-    //fill in shuffled letters into hex grid 
-    for(var i=0; i<letters.length; i++) {
-        var char = letters[i];
-        var hexLetterElement = document.getElementsByClassName("hexLink");
-        hexLetterElement[i].removeChild(hexLetterElement[i].firstChild);
-
-        var pElement = document.createElement("P");
-        pElement.innerHTML = char;
-        hexLetterElement[i].appendChild(pElement); 
-    }*/
 }
-
-//Validate whether letter typed into input box was from one of 7 available letters
-// document.getElementById("test-word").addEventListener("keydown", function(event){
-//     if(!letters.includes(event.key.toUpperCase())){
-//         alert('Invalid Letter Typed')
-//         event.preventDefault();
-//     }
-//   }
-//   )
 
 //When letter is clicked add it to input box
 var clickLetter = function (letter) {
@@ -234,7 +278,6 @@ function wrongInput(selector) {
 
 function rightInput(selector) {
   $(selector).fadeIn(500).delay(1000).fadeOut(500);
-
   clearInput();
 }
 
@@ -252,11 +295,12 @@ function showPoints(pts) {
 //word can't already be found
 function submitWord() {
   var tryword = document.getElementById("test-word");
-  var centerLetter = document.getElementById("center-letter").firstChild.innerHTML;
+  var centerLetter =
+    document.getElementById("center-letter").firstChild.innerHTML;
   var isPangram = false;
   let score = 0;
-  
-  if (tryword.innerHTML.length < 4) {
+
+  if (tryword.innerHTML.length < 3) {
     wrongInput("#too-short");
   } else if (discoveredWords.includes(tryword.innerHTML.toLowerCase())) {
     wrongInput("#already-found");
@@ -291,28 +335,35 @@ function submitWord() {
   } else {
     wrongInput("#invalid-word");
   }
+
+  checkEndGame();
 }
 
 //if word was valid, display it
 //if all words are found end game.
 function showDiscoveredWord(input) {
   var discText = document.getElementById("discoveredText");
-  if(input) {
+  if (input) {
     discoveredWords.push(input.toLowerCase());
   }
   discoveredWords.sort();
-  localStorage.setItem('discovered-words', JSON.stringify(discoveredWords));
-  discText.innerHTML = '';
+  localStorage.setItem("discovered-words", JSON.stringify(discoveredWords));
+  discText.innerHTML = "";
   discoveredWords.forEach((word, index) => {
-    if(index < discoveredWords.length - 1 ){
-      discText.innerHTML += word + ',';
-    }else{
-      discText.innerHTML += word + '.';
+    if (index < discoveredWords.length - 1) {
+      discText.innerHTML += word + ", ";
+    } else {
+      discText.innerHTML += word + ".";
     }
   });
+}
 
-  if (numFound == validWords.length) {
-    alert("Eureka! Has trobat totes les paraules!");
+function checkEndGame() {
+  if (numFound === validWords.length) {
+    setTimeout(() => {      
+      document.body.classList.add("gameover-animation");
+      console.log("Eureka! Has trobat totes les paraules!");
+    }, 2500);
   }
 }
 
@@ -325,7 +376,7 @@ function addToTotalScore(score) {
 function calculateWordScore(input, isPangram) {
   let len = input.length;
   let returnScore = 1;
-  if (len > 4) {
+  if (len > 2) {
     if (isPangram) {
       returnScore = len + 7;
     } else {
@@ -350,12 +401,6 @@ function checkPangram(input) {
   }
   console.log("isPangram?: " + containsAllLetters);
   return containsAllLetters;
-
-  // console.log(input.value);
-  // if(input==pangram){
-  //  return true;
-  // }
-  return false;
 }
 
 function checkIncorrectLetters(input) {
