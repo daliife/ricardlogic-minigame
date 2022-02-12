@@ -68,13 +68,15 @@ body {
 #hexGrid {
   display: grid;
   grid-gap: 6px;
-  grid-template-columns: repeat(4, fr);
   width: 250px;
   margin: 0 auto;
   font-size: 0.9em;
   list-style-type: none;
   overflow: hidden;
   position: relative;
+  grid-template-columns: repeat(6, 2fr);
+  padding-bottom: 6.4%;
+  margin-bottom: 2vh;
 }
 
 .hex {
@@ -139,11 +141,11 @@ input[type="text"] {
   padding: 40%;
   box-sizing: border-box;
   background-color: transparent;
-  font-weight: 800;
   font-size: 1.4em;
   color: var(--black);
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
+  font-weight: 600;
 }
 /*** HEX HOVER *****************************************************************/
 
@@ -159,11 +161,6 @@ input[type="text"] {
 
 /*** HEXAGON SIZING AND EVEN ROW INDENTATION *********************************/
 
-#hexGrid {
-  grid-template-columns: repeat(6, 2fr);
-  padding-bottom: 6.4%;
-  margin-bottom: 2vh;
-}
 .hex:nth-child(5n + 1) {
   /* first hexagon of odd rows */
   grid-column-start: 2;
@@ -319,13 +316,13 @@ ul {
 #great,
 #pangram,
 #amazing {
-  display: None;
+  display: none;
   background-color: var(--blue);
   color: var(--white);
 }
 #pangram,
 #amazing {
-  background-color: var(--green);
+  background-color: var(--blue);
 }
 
 .container-notifications {
@@ -333,20 +330,16 @@ ul {
   display: flex;
   justify-content: center;
   margin-top: 8px;
-  /* height: 50px;  */
-  align-items: center;
 }
 
 .notifications {
+  position: absolute;
   background-color: #ec4a49;
-  color: var(--white);
-  display: flex;
-  padding: 5px 10px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-  font-family: "Open Sans", sans-serif;
-  font-size: 1em;
+  color: #fff;
+  border-radius: 3px;
+  padding: 5px;
+  z-index: 100;
+  pointer-events: none;
 }
 
 @keyframes backgroundLoop {

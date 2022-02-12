@@ -279,13 +279,17 @@ function deleteLetter() {
 }
 
 function wrongInput(selector) {
-  $(selector).fadeIn(500);
-  $(selector).fadeOut(1000);
+  const ANIMATION_TIME = 750;
+  $(selector).fadeIn(0).delay(ANIMATION_TIME).fadeOut(ANIMATION_TIME);
   $("#cursor").hide();
-  $("#test-word").effect("shake", { times: 2.5 }, 450, function () {
-    clearInput();
+  // $("#test-word").effect("shake", { times: 2.5 }, 450, function () {
+  //   clearInput();
+  //   $("#cursor").show();
+  // });
+  clearInput();
+  setTimeout(() => {
     $("#cursor").show();
-  });
+  }, ANIMATION_TIME*2);
 }
 
 function rightInput(selector) {
@@ -439,6 +443,10 @@ function input_from_keyboard(event) {
 
   if (event.keyCode == 8) {
     deleteLetter();
+  }
+
+  if (event.keyCode == 27) {
+    shuffleLetters();
   }
 
   //validation for just alphabet letters input

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
   <head>
     <title>Ricardlògic</title>
@@ -13,7 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
     <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Roboto+Slab:300,400,500,600,700&display=swap"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800|Roboto+Slab:300,400,500,600,700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -22,6 +21,7 @@
     />
   </head>
   <body onload="get_valid_words_local()" onkeydown="input_from_keyboard(event)">
+    <!-- TITLE  -->
     <h1 class="title">
       RICARD<span class="title-highlight"
         >L<span class="title-highlight-variant" onclick="removeLocalStorage()"
@@ -32,22 +32,20 @@
 
     <!-- NOTIFICATIONS -->
     <div class="container-notifications">
-      <div>
-        <p id="too-short" class="notifications">Massa curt</p>
-        <p id="good" class="notifications">Bé! <span class="points"></span></p>
-        <p id="great" class="notifications">
-          Molt bé! <span class="points"></span>
-        </p>
-        <p id="amazing" class="notifications">
-          Fenomenal! <span class="points"></span>
-        </p>
-        <p id="pangram" class="notifications">
-          Pangram! <span class="points"></span>
-        </p>
-        <p id="already-found" class="notifications">Paraula ja trobada</p>
-        <p id="invalid-word" class="notifications">Paraula incorrecta</p>
-        <p id="miss-center" class="notifications">Falta lletra del mig</p>
-      </div>
+      <p id="too-short" class="notifications">Massa curt</p>
+      <p id="good" class="notifications">Bé! <span class="points"></span></p>
+      <p id="great" class="notifications">
+        Molt bé! <span class="points"></span>
+      </p>
+      <p id="amazing" class="notifications">
+        Fenomenal! <span class="points"></span>
+      </p>
+      <p id="pangram" class="notifications">
+        Pangram! <span class="points"></span>
+      </p>
+      <p id="already-found" class="notifications">Paraula ja trobada</p>
+      <p id="invalid-word" class="notifications">Paraula incorrecta</p>
+      <p id="miss-center" class="notifications">Falta lletra del mig</p>
     </div>
 
     <!-- INPUT WORD -->
@@ -90,13 +88,13 @@
       </div>
     </div>
 
+    <!-- SCORES -->
     <div class="container" id="scoreboard">
       <div class="scoreText">
         Has trobat <span id="numfound">0</span> paraula/es de les
         <span id="numpossibles">0</span> possibles:
         <span class="bold-text" id="discoveredText"></span>
       </div>
-
       <div class="scoreText punctuation">
         Puntuació: <span id="score">0</span>/<span id="maxscore">0</span>
       </div>
