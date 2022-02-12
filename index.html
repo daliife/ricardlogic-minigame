@@ -21,7 +21,7 @@
       rel="stylesheet"
     />
   </head>
-  <body onload="get_valid_words()" onkeydown="input_from_keyboard(event)">
+  <body onload="get_valid_words_local()" onkeydown="input_from_keyboard(event)">
     <h1 class="title">
       RICARD<span class="title-highlight"
         >L<span class="title-highlight-variant" onclick="removeLocalStorage()"
@@ -91,11 +91,12 @@
     </div>
 
     <div class="container" id="scoreboard">
-      <div class="scoreText" style="margin-bottom: 8px">
+      <div class="scoreText">
         Has trobat <span id="numfound">0</span> paraula/es de les
         <span id="numpossibles">0</span> possibles:
         <span class="bold-text" id="discoveredText"></span>
       </div>
+
       <div class="scoreText punctuation">
         Puntuació: <span id="score">0</span>/<span id="maxscore">0</span>
       </div>

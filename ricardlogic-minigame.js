@@ -159,6 +159,18 @@ function get_valid_words() {
   request.send();
 }
 
+function get_valid_words_local() {
+  var data = JSON_MOCK;
+  letters = data["letters"];
+  validWords = data["possible_words"];
+  pangram = data["pangram"];
+  maxscore = data["maxscore"];
+  initialize_letters();
+  initialize_score();
+  // removeLocalStorage();
+  preloadDiscoveredWords();
+}
+
 function initialize_score() {
   document.getElementById("maxscore").innerHTML = String(maxscore);
   document.getElementById("numpossibles").innerHTML = String(validWords.length);
@@ -167,15 +179,15 @@ function initialize_score() {
 function preloadDiscoveredWords() {
   if (localStorage.hasOwnProperty("discovered-words")) {
     discoveredWords = JSON.parse(localStorage.getItem("discovered-words"));
-    
+
     // Update num words found
     numFound = discoveredWords.length;
     document.getElementById("numfound").innerHTML = numFound;
     showDiscoveredWord();
 
     // Update score
-    if(discoveredWords.length > 0){
-      discoveredWords.forEach(element => {
+    if (discoveredWords.length > 0) {
+      discoveredWords.forEach((element) => {
         score = calculateWordScore(element, false);
         addToTotalScore(score);
       });
@@ -360,7 +372,7 @@ function showDiscoveredWord(input) {
 
 function checkEndGame() {
   if (numFound === validWords.length) {
-    setTimeout(() => {      
+    setTimeout(() => {
       document.body.classList.add("gameover-animation");
       console.log("Eureka! Has trobat totes les paraules!");
     }, 2500);

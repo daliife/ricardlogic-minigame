@@ -351,9 +351,6 @@ ul {
   0% {
     background: var(--white);
   }
-  /* 50% {
-    background: var(--red);
-  } */
   100% {
     background: var(--blue);
   }
