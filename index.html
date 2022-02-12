@@ -4,10 +4,7 @@
     <title>Ricardlògic</title>
     <link rel="stylesheet" href="ricardlogic-minigame.css" />
     <link rel="icon" href="/assets/favicon.svg" type="image/icon type" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
@@ -15,34 +12,21 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800|Roboto+Slab:300,400,500,600,700&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet" />
   </head>
   <body onload="get_valid_words_local()" onkeydown="input_from_keyboard(event)">
     <!-- TITLE  -->
     <h1 class="title">
-      RICARD<span class="title-highlight"
-        >L<span class="title-highlight-variant" onclick="removeLocalStorage()"
-          >Ò</span
-        >GIC</span
-      >
+      RICARD<span class="title-highlight">L<span class="title-highlight-variant" onclick="removeLocalStorage()">Ò</span>GIC</span>
     </h1>
 
     <!-- NOTIFICATIONS -->
     <div class="container-notifications">
       <p id="too-short" class="notifications">Massa curt</p>
       <p id="good" class="notifications">Bé! <span class="points"></span></p>
-      <p id="great" class="notifications">
-        Molt bé! <span class="points"></span>
-      </p>
-      <p id="amazing" class="notifications">
-        Fenomenal! <span class="points"></span>
-      </p>
-      <p id="pangram" class="notifications">
-        Pangram! <span class="points"></span>
-      </p>
+      <p id="great" class="notifications">Molt bé! <span class="points"></span></p>
+      <p id="amazing" class="notifications">Fenomenal! <span class="points"></span></p>
+      <p id="pangram" class="notifications">Pangram! <span class="points"></span></p>
       <p id="already-found" class="notifications">Paraula ja trobada</p>
       <p id="invalid-word" class="notifications">Paraula incorrecta</p>
       <p id="miss-center" class="notifications">Falta lletra del mig</p>
@@ -61,43 +45,21 @@
       <ul id="hexGrid"></ul>
 
       <div class="button-container">
-        <button
-          id="delete_button"
-          type="button"
-          class="button"
-          onclick="deleteLetter()"
-        >
-          Suprimeix
-        </button>
-        <button
-          id="shuffle_button"
-          type="button"
-          class="button"
-          onclick="shuffleLetters()"
-        >
+        <button id="delete_button" type="button" class="button" onclick="deleteLetter()">Suprimeix</button>
+        <button id="shuffle_button" type="button" class="button" onclick="shuffleLetters()">
           <img src="./assets/shuffle_icon.png" style="width: 1.2em" />
         </button>
-        <button
-          id="submit_button"
-          type="button"
-          class="button"
-          onclick="submitWord()"
-        >
-          Introdueix
-        </button>
+        <button id="submit_button" type="button" class="button" onclick="submitWord()">Introdueix</button>
       </div>
     </div>
 
     <!-- SCORES -->
     <div class="container" id="scoreboard">
       <div class="scoreText">
-        Has trobat <span id="numfound">0</span> paraula/es de les
-        <span id="numpossibles">0</span> possibles:
+        Has trobat <span id="numfound">0</span> paraula/es de les <span id="numpossibles">0</span> possibles:
         <span class="bold-text" id="discoveredText"></span>
       </div>
-      <div class="scoreText punctuation">
-        Puntuació: <span id="score">0</span>/<span id="maxscore">0</span>
-      </div>
+      <div class="scoreText punctuation">Puntuació: <span id="score">0</span>/<span id="maxscore">0</span></div>
     </div>
   </body>
 </html>

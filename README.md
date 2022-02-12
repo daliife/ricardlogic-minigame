@@ -11,5 +11,3 @@
 Here is an example of the final result:
 
 <img src="/assets/ricardlogic-screenshot.png" width="375" height="667" />
-
-

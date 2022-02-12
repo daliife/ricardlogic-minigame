@@ -32,7 +32,7 @@ body {
   max-width: 800px;
   display: flex;
   flex-direction: column;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   line-height: 30px;
   position: relative;
 }
@@ -88,7 +88,7 @@ body {
 }
 
 .hex::after {
-  content: "";
+  content: '';
   display: block;
   padding-bottom: 86.602%; /* =  100 / tan(60) * 1.5 */
 }
@@ -129,7 +129,7 @@ body {
   background-color: var(--red);
 }
 
-input[type="text"] {
+input[type='text'] {
   background: transparent;
   border: none;
 }
@@ -143,7 +143,7 @@ input[type="text"] {
   background-color: transparent;
   font-size: 1.4em;
   color: var(--black);
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   text-transform: uppercase;
   font-weight: 600;
 }
@@ -188,7 +188,7 @@ input[type="text"] {
 
 #test-word {
   text-align: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   padding-top: 3px;
 }
 
@@ -204,13 +204,13 @@ h1 {
   text-align: center;
   font-size: 3rem;
   font-weight: bold;
-  font-family: "Roboto Slab", serif;
+  font-family: 'Roboto Slab', serif;
 }
 
 .title {
   margin-top: 4.5vh;
-  margin-bottom: 2vh;
-  font-family: "Oswald", serif;
+  margin-bottom: 3vh;
+  font-family: 'Oswald', serif;
   cursor: auto;
 }
 
@@ -226,7 +226,7 @@ h1 {
 }
 
 .scoreText {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 15px;
   font-weight: normal;
   align-self: center;
@@ -238,7 +238,7 @@ ul {
 }
 
 #discoveredText {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 15px;
   align-self: center;
   display: flex;
