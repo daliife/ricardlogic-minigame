@@ -1,20 +1,15 @@
 # Ricardlògic (the Paraulògic clone/adaptation)
 
 ### Project Origin
-This project is based off of NYT's [Spelling Bee Puzzles](https://www.nytimes.com/puzzles/spelling-bee).
-<br>You must have NYT puzzle membership to play the game on New York Times.
 
-Sabrina and I loved playing this game so much during a semester long study abroad experience that we decided to build it for ourselves. 
+- This project is based off of NYT's [Spelling Bee Puzzles](https://www.nytimes.com/puzzles/spelling-bee). The game we made can be found at http://spellingbee.xyz/.
 
-The game we made can be found at: http://spellingbee.xyz/
-<br>The letter combinations refresh daily at 4am EST. 
+- It consists in a adaptation of the following trending catalan game [Paraulògic](https://vilaweb.cat/paraulogic/).
 
-Here is an example of what it looks like:
+### Sceenshots
 
-<img src="/assets/screen_shot_game.png" width="290" height="600" />
+Here is an example of the final result:
 
-###  References: 
+<img src="/assets/ricardlogic-screenshot.png" width="375" height="667" />
 
-Code for hexagonal grid derived from here: https://github.com/web-tiki/responsive-grid-of-hexagons
 
-Raw Dictionary of English words (processed for the project): http://www.mieliestronk.com/wordlist.html
